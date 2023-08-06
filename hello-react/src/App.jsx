@@ -22,8 +22,8 @@ function App() {
       <div className="flex">
         <div className="w-1/2 border border-white-10 rounded-xl p-8 mr-4">
         <h2 className="text-black text-xl font-bold mb-2">Pending</h2>
-        <TaskCard title="Buid the website with static content" dueon="10th April" assignee="Rohit S"/>
-        <TaskCard title="Add a Blog" dueon="22nd March" assignee="Rohit M"/> 
+        <TaskCard title="Buid the website with static content" dueDate="10th April" assigneeName="Rohit S"/>
+        <TaskCard title="Add a Blog" dueDate="22nd March" assigneeName="Rohit M"/> 
         
         <div className="button">
         <button className=" hover:bg-white-600 text-black font-bold py-2 px-4 rounded ">
@@ -36,8 +36,8 @@ function App() {
         </div>
         <div className="w-1/2 border border-white-10 rounded-xl p-8 ml-4">
           <h2 className="text-black text-xl font-bold mb-2">Done</h2>
-          <TaskCard title="Design the mockup" completed="10th April" assignee="Rohit M"/>
-        <TaskCard title="Get the approval from principal" completed="20th April" assignee="Ajay S"/>
+          <TaskCard title="Design the mockup" completedAtDate ="10th April" assigneeName="Rohit M"/>
+        <TaskCard title="Get the approval from principal" completedAtDate="20th April" assigneeName="Ajay S"/>
          
         </div>
       </div>
