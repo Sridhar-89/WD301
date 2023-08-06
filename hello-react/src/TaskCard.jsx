@@ -4,10 +4,10 @@ const TaskCard = (props) => {
   console.log(props)
   let check;
   if(props.dueDate){
-    check="Due on:" + props.dueDate
+    check="Due on: "  +props.dueDate
   }
   else{
-    check="Completed on:" + props.completedAtDate
+    check="Completed on: "  +props.completedAtDate
   }
   return (
     <div className='TaskItem'>
