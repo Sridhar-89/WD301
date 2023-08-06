@@ -1,0 +1,13 @@
+.TaskItem {
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+ .button{
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    background: grey;
+ }
