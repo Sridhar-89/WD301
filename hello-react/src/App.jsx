@@ -11,7 +11,7 @@ function App() {
   return (
     
 
-<div>
+<>
       <div className="bg-white-500 p-4 text-left">
         <h2 className="text-black text-3xl font-bold mb-2">Smarter Tasks</h2>
         <p className="text-black">
@@ -41,7 +41,7 @@ function App() {
          
         </div>
       </div>
-    </div>
+    </>
 
         
       
