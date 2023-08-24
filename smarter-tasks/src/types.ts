@@ -1,3 +1,3 @@
-export interface TaskItem1 {
+export interface TaskItem{
     title: string;
   }
