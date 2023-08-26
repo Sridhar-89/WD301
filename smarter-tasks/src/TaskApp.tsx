@@ -8,13 +8,13 @@ interface TaskAppState {
   tasks: TaskItem[];
 }
 class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
-    addTask = (task: TaskItem) => {
-        this.setState((state) => {
-          return {
-            tasks: [...state.tasks, task],
-          };
-        });
+  addTask = (task: TaskItem) => {
+    this.setState((state) => {
+      return {
+        tasks: [...state.tasks, task],
       };
+    });
+  };
   constructor(props: TaskAppProp) {
     super(props);
     this.state = {

@@ -1,5 +1,4 @@
-
-import './App.css';
+import "./App.css";
 import TaskApp from "./TaskApp";
 
 function App() {
