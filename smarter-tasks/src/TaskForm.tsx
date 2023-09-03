@@ -79,7 +79,7 @@ const TaskForm = (props: TaskFormProps) => {
   };
   return (
     <form onSubmit={addTask}>
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="grid sm:grid-cols-4 md:gap-3">
         <div className="relative z-0 w-full mb-6 group">
           <input
             id="todoTitle"
