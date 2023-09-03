@@ -37,9 +37,11 @@ const TaskForm = (props: TaskFormProps) => {
     todoDueDate: "",
   });
   i += 1;
+  
   const [todoTitle, settodoTitle] = React.useState("");
   const [todoDescription, settodoDescription] = React.useState("");
   const [todoDueDate, settodoDueDate] = React.useState("");
+  console.log(todoDescription,todoDueDate,todoTitle,settodoDescription,settodoDueDate,settodoTitle,useState);
 
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);

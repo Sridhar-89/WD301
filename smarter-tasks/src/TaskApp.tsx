@@ -11,12 +11,15 @@ interface TaskAppState {
 React.useState<TaskAppState>;
 
 const TaskApp = (props: TaskAppProp) => {
+  console.log(props);
   const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>(
     "tasks",
     {
       tasks: [],
     }
+    
   );
+
 
   React.useEffect(() => {
     const id = setTimeout(() => {
@@ -56,7 +59,7 @@ const TaskApp = (props: TaskAppProp) => {
     </div>
   );
 };
-
+console.log(useEffect);
 // interface TaskAppProp {}
 // interface TaskAppState {
 //   tasks: TaskItem[];
