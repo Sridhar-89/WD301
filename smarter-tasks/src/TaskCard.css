@@ -1,10 +1,10 @@
 .TaskItem {
-    /* border: 1px solid #DFDFDF; */
-    border-radius: 4px;
-    padding: 10px 20px;
-    margin-top: 12px;
-  }
-  
+  /* border: 1px solid #DFDFDF; */
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 12px;
+}
+
 /* styles.css */
 .form-container {
   max-width: 400px;
@@ -49,4 +49,3 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
