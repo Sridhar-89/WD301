@@ -35,9 +35,9 @@ const TaskApp = (props: TaskAppProp) => {
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
-  const removeTask = (titleid: number) => {
+  const removeTask = (titleid: string) => {
     setTaskAppState({
-      tasks: taskAppState.tasks.filter((task) => task.id !== titleid),
+      tasks: taskAppState.tasks.filter((task) => task.id !==titleid),
     });
   };
   return (
