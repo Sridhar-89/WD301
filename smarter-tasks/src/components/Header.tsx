@@ -1,7 +1,7 @@
 const Header = () => {
     return (
-      <nav className="bg-gray-800 py-4 px-4 w-full">
-      <div className="mx-auto px-4 max-w-screen-xl">
+      <nav className="bg-gray-800 py-4 px-4 w-full ">
+      <div className="mx-auto px-4 w-full max-w-screen-xl">
         <div className="flex justify-between">
           <div className="flex items-center w-1/3">
             <a href="/home" className="ml-6 text-gray-300 hover:text-white">
