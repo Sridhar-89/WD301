@@ -51,8 +51,8 @@ const Task = (props: TaskItem) => {
   );
 };
 
-// export default Task;
-import "./TaskCard.css";
+export default Task;
+// import "./TaskCard.css";
 // import { TaskItem } from "./types";
 
 // interface TaskProps {
@@ -61,6 +61,9 @@ import "./TaskCard.css";
 // }
 // const Task = (props: TaskProps) => {
 //   const { item, removeTask } = props;
+//   if (!item) {
+//     return null; // or return a placeholder, error message, or handle it in another way
+//   }
 //   return (
 //     <div className="TaskItem shadow-md border border-slate-100">
 //       <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
@@ -83,4 +86,4 @@ import "./TaskCard.css";
 //   );
 // };
 
-export default Task;
+// export default Task;
