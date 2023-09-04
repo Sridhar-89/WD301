@@ -92,18 +92,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface TaskItemProps {
-  id: number;
+  id: string;
   todoTitle: string;
   todoDescription: string;
   todoDueDate: string;
-  removeTask: (id: number) => void;
+  removeTask: (id: string) => void;
 }
 
 const TaskItem: React.FC<TaskItemProps> = (props) => {
   return (
     <div className="TaskItem shadow-md border border-slate-100">
       <li>
-        <Link to={`/tasks/${props.id || ""}`}>
+        <Link to={`/tasks/${props.id.toString() || ""}`}>
           <h3 className="text-base font-bold my-1">{props.todoTitle}</h3>
         </Link>
         <p className="text-sm text-slate-500">Due Date: {props.todoDueDate}</p>
@@ -112,7 +112,7 @@ const TaskItem: React.FC<TaskItemProps> = (props) => {
         </p>
         <button
           className="deleteTaskButton"
-          onClick={() => props.removeTask(props.id)}
+          onClick={() => props.removeTask(props.id.toString())}
         >
           Delete
         </button>
