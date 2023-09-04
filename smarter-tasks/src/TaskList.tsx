@@ -26,7 +26,7 @@ const TaskList = (props: Props) => {
   const list = props.tasks.map((task, idx) => (
     <Task
       key={idx}
-      id={task.id.toString()}
+      id={task.id}
       todoTitle={task.todoTitle}
       todoDescription={task.todoDescription}
       todoDueDate={task.todoDueDate}
