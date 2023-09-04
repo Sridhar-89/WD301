@@ -1,13 +1,5 @@
 // // import { TaskItem } from "./types";
 // import "./TaskCard.css";
-interface TaskItem {
-  id: number;
-  todoTitle: string;
-  todoDescription: string;
-  todoDueDate: string;
-  removeTask: (titleid: number) => void;
-}
-
 // interface TaskProp {
 //   todoTitle: string;
 
@@ -29,29 +21,6 @@ interface TaskItem {
 //     );
 //   }
 // }
-const Task = (props: TaskItem) => {
-  return (
-    <div className="TaskItem shadow-md border border-slate-100">
-      <li>
-      <a href={`/tasks/${props.id || ""}`}>
-        <h2 className="text-base font-bold my-1">{props.todoTitle}</h2>
-        </a>
-        <p className="text-sm text-slate-500">Due Date: {props.todoDueDate}</p>
-        <p className="text-sm text-slate-500">
-          Description: {props.todoDescription}
-        </p>
-        <button
-          className="deleteTaskButton"
-          onClick={() => props.removeTask(props.id)}
-        >
-          Delete
-        </button>
-      </li>
-    </div>
-  );
-};
-
-export default Task;
 // import "./TaskCard.css";
 // import { TaskItem } from "./types";
 
@@ -87,3 +56,71 @@ export default Task;
 // };
 
 // export default Task;
+// interface TaskItem {
+//   id: number;
+//   todoTitle: string;
+//   todoDescription: string;
+//   todoDueDate: string;
+//   removeTask: (titleid: number) => void;
+// }
+
+
+// const Task = (props: TaskItem) => {
+//   return (
+//     <div className="TaskItem shadow-md border border-slate-100">
+//       <li>
+//       <a href={`/tasks/${props.id || ""}`}>
+//         <h3 className="text-base font-bold my-1">{props.todoTitle}</h3>
+//         </a>
+//         <p className="text-sm text-slate-500">Due Date: {props.todoDueDate}</p>
+//         <p className="text-sm text-slate-500">
+//           Description: {props.todoDescription}
+//         </p>
+//         <button
+//           className="deleteTaskButton"
+//           onClick={() => props.removeTask(props.id)}
+//         >
+//           Delete
+//         </button>
+//       </li>
+//     </div>
+//   );
+// };
+
+// export default Task;
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+interface TaskItemProps {
+  id: number;
+  todoTitle: string;
+  todoDescription: string;
+  todoDueDate: string;
+  removeTask: (id: number) => void;
+}
+
+const TaskItem: React.FC<TaskItemProps> = (props) => {
+  return (
+    <div className="TaskItem shadow-md border border-slate-100">
+      <li>
+        <Link to={`/tasks/${props.id || ""}`}>
+          <h3 className="text-base font-bold my-1">{props.todoTitle}</h3>
+        </Link>
+        <p className="text-sm text-slate-500">Due Date: {props.todoDueDate}</p>
+        <p className="text-sm text-slate-500">
+          Description: {props.todoDescription}
+        </p>
+        <button
+          className="deleteTaskButton"
+          onClick={() => props.removeTask(props.id)}
+        >
+          Delete
+        </button>
+      </li>
+    </div>
+  );
+};
+
+export default TaskItem;
+
+
