@@ -8,7 +8,7 @@ interface TaskFormProps {
 }
 
 interface TaskFormState {
-  id: number;
+  id: string;
   todoTitle: string;
   todoDescription: string;
   todoDueDate: string;
@@ -28,15 +28,16 @@ interface TaskFormState {
 //     this.setState({ todoDueDate: "" });
 //     this.setState({ todoDescription: "" });
 //   };
-var i = 0;
+// var i = 0;
 const TaskForm = (props: TaskFormProps) => {
+  const uid = Date.now().toString(36);
   const [formState, setFormState] = React.useState<TaskFormState>({
-    id: i,
+    id: uid,
     todoTitle: "",
     todoDescription: "",
     todoDueDate: "",
   });
-  i += 1;
+  // ui += 1;
   
   const [todoTitle, settodoTitle] = React.useState("");
   const [todoDescription, settodoDescription] = React.useState("");
@@ -70,9 +71,9 @@ const TaskForm = (props: TaskFormProps) => {
       return;
     }
     props.addTask(formState);
-    console.log("id is "+i);
+    // console.log("id is "+i);
     setFormState({
-      id: i,
+      id: uid,
       todoTitle: "",
       todoDescription: "",
       todoDueDate: "",
