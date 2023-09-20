@@ -29,10 +29,10 @@ const SignupForm: React.FC = () => {
       if (!response.ok) {
         throw new Error("Sign-up failed");
       }
-      if (response) {
-        console.log("Sign-up successful");
-        navigate("/signin");
-      }
+      // if (response) {
+      //   console.log("Sign-up successful");
+      //   navigate("/signin");
+      // }
 
       const data = await response.json();
 
