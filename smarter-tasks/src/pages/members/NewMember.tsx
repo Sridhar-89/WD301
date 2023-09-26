@@ -1,24 +1,22 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { addMember } from "../../context/members/actions";
+import { useMembersDispatch } from "../../context/members/context";
 
-// First I'll import the addProject function
-import { addProject } from "../../context/projects/actions";
-
-// Then I'll import the useProjectsDispatch hook from projects context
-import { useProjectsDispatch } from "../../context/projects/context";
 type Inputs = {
   name: string;
+  email: string;
+  password: string;
 };
-const NewProject = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  // Next, I'll add a new state to handle errors.
+const NewMember = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(null);
 
-  // Then I'll call the useProjectsDispatch function to get the dispatch function
-  // for projects
-  const dispatchProjects = useProjectsDispatch();
+  // Then I'll call the useMembersDispatch function to get the dispatch function
+  // for Members
+  const dispatchMembers = useMembersDispatch();
   const {
     register,
     handleSubmit,
@@ -31,18 +29,15 @@ const NewProject = () => {
     setIsOpen(true);
   };
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name } = data;
-
-    // Next, I'll call the addProject function with two arguments:
-    //`dispatchProjects` and an object with `name` attribute.
-    // As it's an async function, we will await for the response.
-    const response = await addProject(dispatchProjects, { name });
-
-    // Then depending on response, I'll either close the modal...
+    const { name, email, password } = data; //destructuring form data
+    const response = await addMember(dispatchMembers, {
+      name,
+      email,
+      password,
+    });
     if (response.ok) {
-      setIsOpen(false);
+      setIsOpen(false); //close modal
     } else {
-      // Or I'll set the error.
       setError(response.error as React.SetStateAction<null>);
     }
   };
@@ -53,7 +48,7 @@ const NewProject = () => {
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        New Project
+        New Member
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -84,7 +79,7 @@ const NewProject = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Create new project
+                    Create new member
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -92,7 +87,8 @@ const NewProject = () => {
                       {error && <span>{error}</span>}
                       <input
                         type="text"
-                        placeholder="Enter project name..."
+                        id="name"
+                        placeholder="Enter Member name..."
                         autoFocus
                         {...register("name", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
@@ -100,14 +96,36 @@ const NewProject = () => {
                         }`}
                       />
                       {errors.name && <span>This field is required</span>}
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter email id..."
+                        autoFocus
+                        {...register("email", { required: true })}
+                        className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
+                          errors.email ? "border-red-500" : ""
+                        }`}
+                      />
+                      {errors.email && <span>This field is required</span>}
+                      <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password..."
+                        autoFocus
+                        {...register("password", { required: true })}
+                        className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
+                          errors.password ? "border-red-500" : ""
+                        }`}
+                      />
+                      {errors.password && <span>This field is required</span>}
                       <button
                         type="submit"
+                        id="create-member-btn"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
                         Submit
                       </button>
                       <button
-                        type="submit"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
@@ -124,4 +142,4 @@ const NewProject = () => {
     </>
   );
 };
-export default NewProject;
+export default NewMember;
