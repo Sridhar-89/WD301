@@ -57,7 +57,7 @@ import {
   useMembersDispatch,
   useMembersState,
 } from "../../context/members/context";
-// import trash from "../../assets/images/trash.png";
+import trash from "../../assets/images/trash.png";
 import { deleteUser } from "../../context/members/actions";
 export default function MemberListItems() {
   let state: any = useMembersState();
@@ -104,7 +104,7 @@ export default function MemberListItems() {
             }}
           >
             <img
-              src="/src/assets/images/trash.png"
+              src={trash}
               style={{
                 width: "75%",
                 height: "auto",
