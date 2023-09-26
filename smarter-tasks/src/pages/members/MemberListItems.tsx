@@ -65,7 +65,7 @@ export default function MemberListItems() {
   const { members, isLoading, isError, errorMessage } = state;
   console.log("m", members);
   const dispatchMembers = useMembersDispatch();
-  console.log('........'+ members);
+  console.log("........" + members);
 
   if (members.length === 0 && isLoading) {
     return <span>Loading...</span>;
@@ -80,7 +80,6 @@ export default function MemberListItems() {
     // console.log(response);
   };
 
-  
   return (
     <>
       {members.map((member: any) => (
@@ -88,16 +87,10 @@ export default function MemberListItems() {
           key={member.id}
           className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5
-            
-            className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
-          >
+          <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
             {member.name}
           </h5>
-          <h5
-            
-            className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
-          >
+          <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
             {member.email}
           </h5>
           <button
@@ -113,7 +106,6 @@ export default function MemberListItems() {
               }}
               alt="Delete"
               className="trash"
-              
             />
           </button>
         </div>
