@@ -1,219 +1,46 @@
-// import {
-//   createBrowserRouter,
-//   Navigate,
-//   RouterProvider,
-// } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import TaskListPage from "./pages/TaskListPage";
-// import TaskDetailsPage from "./pages/TaskDetailsPage";
-// import Signin from "./pages/Signin";
-// import ProtectedRoute from "./ProtectedRoute";
-// import Layout from "./Layout";
-// import NotFound from "./NotFound";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Navigate to="/signin" replace />,
-//   },
-//   {
-//     path: "/signin",
-//     element: <Signin />,
-//   },
-//   {
-//     element: (
-//       <ProtectedRoute>
-//         <Layout />
-//       </ProtectedRoute>
-//     ),
-//     children: [
-//       {
-//         path: "home",
-//         element: <HomePage />,
-//       },
-//       {
-//         path: "tasks",
-//         element: <TaskListPage />,
-//       },
-//       {
-//         path: "tasks/:id",
-//         element: <TaskDetailsPage />,
-//       },
-//       {
-//         path: 'notfound', // Define the /notfound route
-//         element: <NotFound/>, // Use the NotFoundPage component
-//       },
-//     ],
-//   },
-//   {
-//     path: '*',
-//     element: <Navigate to="/notfound" />,
-//   },
-// ]);
+// import React, { useContext } from "react";
+// import { RouterProvider } from "react-router-dom";
+// import router from "./routes"
+// import { ThemeContext} from "./context/theme";
 
 // const App = () => {
-//   return <RouterProvider router={router} />;
-// };
+//   const { theme } = useContext(ThemeContext)
 
-// export default App;
-// import React from 'react';
-// import Form from './Form';
-// import ReactPlayground from './ReactPlayground';
+  // return (
+  //   <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
+  //   {theme}
+  //   <RouterProvider router={router} />
+  // </div>
 
-// import {
-//   createBrowserRouter,
-//   Navigate,
-//   RouterProvider,
-// } from 'react-router-dom';
-// import HomePage from './pages/HomePage';
-// import TaskListPage from './pages/TaskListPage';
-// import TaskDetailsPage from './pages/TaskDetailsPage';
-// import Signin from './pages/Signin';
-// import ProtectedRoute from './ProtectedRoute';
-// import Layout from './Layout';
-// import NotFound from "./pages/Notfound";
-// import Header from './components/Header';
-// import { Routes } from 'react-router-dom';
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// } from "react-router-dom";
-// import Notfound from "./pages/Notfound";
-// import Signup from './pages/signup/index';
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Signup />,
-//   },
-//   {
-//     path: "/signup",
-//     element: <Signup />,
-//   },
-//   {
-//     path: "/notfound",
-//     element: <Notfound />,
-//   },
-//   {
-//     path: "*",
-//     element: <Notfound />,
-//   }
-// ]);
-
-// const App = () => {
+  // );
 //   return (
-//     <RouterProvider router={router} />
-//   );
-// }
-
-// export default App
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Navigate to="/signin" replace />,
-//   },
-//   {
-//     path: 'signin',
-//     element: <Signin />,
-//   },
-//   {
-//     element: (
-//       <ProtectedRoute>
-//         <Layout />
-//       </ProtectedRoute>
-//     ),
-//     children: [
-//       {
-//         path: 'home',
-//         element: <HomePage />,
-//       },
-//       {
-//         path: 'tasks',
-//         element: <TaskListPage />,
-//       },
-//       {
-//         path: 'tasks/:id',
-//         element: <TaskDetailsPage />,
-//       },
-//       {
-//         path: 'notfound',
-//         element: <NotFound />, // Use the NotFound component
-//       },
-//     ],
-//   },
-//   {
-//     path: '*',
-//     element: <Navigate to="/notfound" />,
-//   },
-// ]);
-
-// const App: React.FC = () => {
-//   return <RouterProvider router={router} />;
-// };
-// const App = () => {
-//   return (
-//     <>
-//       <ReactPlayground />
-//       <RouterProvider router={router} />
-//     </>
-//   );
-// }
-// function App() {
-//   return (
-//     <div>
-//       <Header />
-//       <Form />
-//       {/* <ReactPlayground />
-//      <RouterProvider router={router} /> */}
+//     <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
+//       <ProjectsProvider>
+//         <RouterProvider router={router} />
+//       </ProjectsProvider>
 //     </div>
-//   );
+//   )
 // }
-
 // export default App;
+import React, { useContext } from "react";
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import router from "./routes"
+import { ThemeContext } from "./context/theme";
 
-// export default App;
+// To do that, first I'll import the `ProjectsProvider` in the `App` component.
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Notfound from "./pages/Notfound";
-import Signup from "./pages/signup";
-import Dashboard from "./pages/dashboard";
-// First, we've to import the Signin component
-import Signin from "./pages/signin";
-import ProtectedRoute from "./ProtectedRoute";
+import { ProjectsProvider } from "./context/projects/context";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Signup />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/signin",
-    element: <Signin />,
-  },
-  {
-    path: "/notfound",
-    element: <Notfound />,
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <ProtectedRoute>
-        <Dashboard />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "*",
-    element: <Notfound />,
-  },
-]);
-
+// Then I'll wrap the RouterProvider component with the <ProjectsProvider> component.
 const App = () => {
-  return <RouterProvider router={router} />;
-};
-
+  const { theme } = useContext(ThemeContext)
+  return (
+     <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
+      <ProjectsProvider>
+        <RouterProvider router={router} />
+      </ProjectsProvider>
+    </div>
+  );
+}
 export default App;
