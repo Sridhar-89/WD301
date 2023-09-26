@@ -30,7 +30,7 @@ const NewProject = () => {
   const openModal = () => {
     setIsOpen(true);
   };
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit1: SubmitHandler<Inputs> = async (data) => {
     const { name } = data;
 
     // Next, I'll call the addProject function with two arguments:
@@ -87,7 +87,7 @@ const NewProject = () => {
                     Create new project
                   </Dialog.Title>
                   <div className="mt-2">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit1)}>
                       {/* I'll show the error, if it exists.*/}
                       {error && <span>{error}</span>}
                       <input

@@ -30,12 +30,14 @@ const NewMember = () => {
   };
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { name, email, password } = data; 
+    console.log("data is ",name,email);
     const response = await addMember(dispatchMembers, {
       name,
       email,
       password,
     });
     if (response.ok) {
+        console.log("New member added",response);
       setIsOpen(false); //close modal
     } else {
       setError(response.error as React.SetStateAction<null>);

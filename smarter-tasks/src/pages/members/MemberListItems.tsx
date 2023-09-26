@@ -79,43 +79,85 @@ export default function MemberListItems() {
     // console.log(response);
   };
 
-  return (
-    <>
-      {members.map((member: any) => (
-        <div
-          key={member.id}
-          className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+  // return (
+  //   <>
+  //     {members.map((member: any) => (
+  //       <div
+  //         key={member.id}
+  //         className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+  //       >
+  //         <h5
+  //           key={member.name}
+  //           id="name"
+  //           className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
+  //         >
+  //           {member.name}
+  //         </h5>
+  //         <h5
+  //           key={member.email}
+  //           id="email"
+  //           className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
+  //         >
+  //           {member.email}
+  //         </h5>
+  //         <button
+  //           onClick={() => {
+  //             handleOnClick(member.id);
+  //           }}
+  //         >
+  //           <img
+  //             src={trash}
+  //             style={{
+  //               width: "75%",
+  //               height: "auto",
+  //             }}
+  //             alt="Delete"
+  //             className="trash"
+  //             id="new-member-btn"
+  //           />
+  //         </button>
+  //       </div>
+  //     ))}
+//     </>
+//   );
+// }
+return (
+  <>
+    {members.map((member: any) => (
+      <div
+        key={member.id} 
+        className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      >
+        <h5
+          id="name"
+          className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
         >
-          <h5
-            id="name"
-            className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
-          >
-            {member.name}
-          </h5>
-          <h5
-            id="email"
-            className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
-          >
-            {member.email}
-          </h5>
-          <button
-            onClick={() => {
-              handleOnClick(member.id);
+          {member.name}
+        </h5>
+        <h5
+          id="email"
+          className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white"
+        >
+          {member.email}
+        </h5>
+        <button
+          onClick={() => {
+            handleOnClick(member.id);
+          }}
+        >
+          <img
+            src={trash}
+            style={{
+              width: "75%",
+              height: "auto",
             }}
-          >
-            <img
-              src={trash}
-              style={{
-                width: "75%",
-                height: "auto",
-              }}
-              alt="Delete"
-              className="trash"
-              id="new-member-btn"
-            />
-          </button>
-        </div>
-      ))}
-    </>
-  );
-}
+            alt="Delete"
+            className="trash"
+            id="new-member-btn"
+          />
+        </button>
+      </div>
+    ))}
+  </>
+);
+          }

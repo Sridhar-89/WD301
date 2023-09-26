@@ -5,7 +5,7 @@ export const fetchMembers = async (dispatch: any) => {
 
   try {
     dispatch({ type: "FETCH_MEMBERS_REQUEST" });
-    const response = await fetch(`${API_ENDPOINT}/projects`, {
+    const response = await fetch(`${API_ENDPOINT}/users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export const fetchMembers = async (dispatch: any) => {
 export const addMember = async (dispatch: any, args: any) => {
   try {
     const token = localStorage.getItem("authToken") ?? "";
-    const response = await fetch(`${API_ENDPOINT}/projects`, {
+    const response = await fetch(`${API_ENDPOINT}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export const addMember = async (dispatch: any, args: any) => {
       body: JSON.stringify(args),
     });
     if (!response.ok) {
-      throw new Error("Failed to create project");
+      throw new Error("Failed to create member");
     }
     const data = await response.json();
     console.log("data is", data);
