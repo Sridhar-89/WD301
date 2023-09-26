@@ -29,7 +29,7 @@ const NewMember = () => {
     setIsOpen(true);
   };
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name, email, password } = data; //destructuring form data
+    const { name, email, password } = data; 
     const response = await addMember(dispatchMembers, {
       name,
       email,
@@ -46,7 +46,7 @@ const NewMember = () => {
       <button
         type="button"
         onClick={openModal}
-        className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75" id="new-member-btn"
       >
         New Member
       </button>
