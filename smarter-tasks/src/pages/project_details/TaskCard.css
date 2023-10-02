@@ -1,0 +1,10 @@
+.TaskItem {
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  padding: 50;
+}
+.deleteTaskButton {
+  border: 2px solid #efa0a0;
+  border-radius: 4px;
+  padding: 50;
+}
