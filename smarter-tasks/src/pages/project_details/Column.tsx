@@ -7,7 +7,7 @@ import { Droppable } from "react-beautiful-dnd";
 const Container = (props: React.PropsWithChildren) => {
   // We will use flex to display lists as columns
   return (
-    <div className="m-2 border border-gray rounded w-1/3 flex flex-col">
+    <div className="m-2 border border-gray rounded w-full flex flex-col">
       {props.children}
     </div>
   );
