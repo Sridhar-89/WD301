@@ -42,9 +42,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default ({ mode }) => {
   return defineConfig({
-    build: {
-      outDir: "build",
-    },
+   
     plugins: [
       react(),
       VitePWA({
