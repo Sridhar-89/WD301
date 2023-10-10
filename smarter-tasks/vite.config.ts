@@ -29,7 +29,7 @@
 //             "type": "image/png",
 //             "sizes": "32x32"
 //           }
-         
+
 //         ],
 //         theme_color: '#AAF',
 //       },
@@ -43,8 +43,8 @@ import { VitePWA } from "vite-plugin-pwa";
 export default ({ mode }) => {
   return defineConfig({
     build: {
-      outDir:"dev-dist",
- },
+      outDir: "dev-dist",
+    },
     plugins: [
       react(),
       VitePWA({
