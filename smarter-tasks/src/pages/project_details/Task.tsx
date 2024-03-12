@@ -7,6 +7,7 @@ import { useTasksDispatch } from "../../context/task/context";
 import { deleteTask } from "../../context/task/actions";
 import "./TaskCard.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Task = forwardRef<
   HTMLDivElement,
@@ -15,6 +16,7 @@ const Task = forwardRef<
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const { task } = props;
+  const { t }=useTranslation();
   return (
     <div ref={ref} {...props} className="m-2 flex">
       <Link
@@ -23,16 +25,16 @@ const Task = forwardRef<
       >
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
           <div>
-            <h2 className="text-base font-bold my-1">{task.title}</h2>
+            <h2 className="text-base font-bold my-1">{t(task.title)}</h2>
             <p className="text-sm text-slate-500">
               {new Date(task.dueDate).toDateString()}
             </p>
             <p className="text-sm text-slate-500">
-              Description: {task.description}
+              {t('Description:')} {t(task.description)}
             </p>
           </div>
           <button
-            className="deleteTaskButton cursor-pointer h-4 w-4 rounded-full my-5 mr-5"
+            className="deleteTaskButton cursor-pointer h-10 w-15 rounded-full my-5 mr-5"
             onClick={(event) => {
               event.preventDefault();
               deleteTask(taskDispatch, projectID ?? "", task);
@@ -55,15 +57,15 @@ const Task = forwardRef<
           </button>
         </div>
         <div>
-          <h2 className="text-base font-bold my-1">{task.title}</h2>
+          <h2 className="text-base font-bold my-1">{t(task.title)}</h2>
           <p className="text-sm text-slate-500">
             {new Date(task.dueDate).toDateString()}
           </p>
           <p className="text-sm text-slate-500">
-            Description: {task.description}
+            {t("Description:")} {t(task.description)}
           </p>
           <p className="text-sm text-slate-500">
-            Assignee: {task.assignedUserName ?? "-"}
+            {t("Assignee:")} {t(task.assignedUserName ?? "-")}
           </p>
         </div>
       </Link>

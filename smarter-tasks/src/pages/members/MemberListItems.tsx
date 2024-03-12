@@ -52,6 +52,7 @@
 //     </>
 //   );
 // }
+import { useTranslation } from "react-i18next";
 import React from "react";
 import {
   useMembersDispatch,
@@ -60,6 +61,7 @@ import {
 import trash from "../../assets/images/trash.png";
 import { deleteUser } from "../../context/members/actions";
 export default function MemberListItems() {
+  const{t}=useTranslation();
   let state: any = useMembersState();
   console.log("mmm", state);
   const { members, isLoading, isError, errorMessage } = state;
@@ -88,10 +90,10 @@ export default function MemberListItems() {
           className="member block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
           <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
-            {member.name}
+            {t(member.name)}
           </h5>
           <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
-            {member.email}
+            {t(member.email)}
           </h5>
           <button
             onClick={() => {

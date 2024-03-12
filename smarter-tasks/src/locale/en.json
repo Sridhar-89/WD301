@@ -1,0 +1,45 @@
+
+{
+    "translation": {
+    "Pending": "Pending",
+    "In progress": "In Progress",
+    "Done": "Done",
+    "Projects": "Projects",
+    "Users":"Users",
+    "Members": "Members",
+    "New Project": "New Project",
+    "Create new project": "Create New Project",
+    "Enter project name...": "Enter project name...",
+    "New Member": "New Member",
+    "Create new member": "Add New Member",
+    "Enter Member name": "Enter Member name",
+    "Enter email id":"Enter email id",
+    "Enter password":"Enter password",
+    "Submit": "Submit",
+    "Cancel": "Cancel",
+    "updateButtonText": "Update",
+    "addCommentBtnText": "Add Comment",
+    "New Task": "New Task",
+    "Create new Task": "Create New Task",
+    "Enter title": "Enter title",
+    "Enter description": "Enter description",
+    "Task Details": "Task Details",
+    "Assignee":"Assignee",
+    "assigneeText": "Assigned to",
+    "commentText": "Comments",
+    "Description:": "Description",
+    "Update":"Update",
+    "python":"python",
+    "sri":"Sri",
+    "sridhar@gmail.com":"sridhar@gmail.com",
+    "homework":"homework",
+    "science":"science",
+    "Weather app":"Weather app",
+   
+    "Comment":"Comment",
+    "Profile": "Profile",
+    "Sign out": "Sign out"
+
+   
+  }
+}

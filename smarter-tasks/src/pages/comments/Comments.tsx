@@ -5,8 +5,10 @@ import { useCommentsDispatch } from "../../context/comment/context";
 import { addComment, fetchComments } from "../../context/comment/actions";
 import { CommentListItems } from "./CommentListItems";
 import { Comment } from "../../context/comment/types";
+import { useTranslation } from "react-i18next";
 
 export const Comments = () => {
+  const { t}=useTranslation();
   const CommentsDispatch = useCommentsDispatch();
   const { projectID, taskID } = useParams();
   useEffect(() => {
@@ -45,7 +47,7 @@ export const Comments = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="block text-gray-700 font-semibold mb-2">
-            Comment:
+            {t('Comment')}
           </label>
           <input
             type="text"
@@ -60,7 +62,7 @@ export const Comments = () => {
           id="addCommentBtn"
           className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
         >
-          Comment
+         {t('Comment')}
         </button>
       </form>
 
