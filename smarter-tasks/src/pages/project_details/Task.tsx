@@ -9,6 +9,31 @@ import "./TaskCard.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+const formatDateForPicker = (isoDate: string) => {
+  const { t, i18n } = useTranslation();
+  const dateObj = new Date(isoDate);
+  
+  let localeObject;
+  switch (i18n.language) {
+    case 'es':
+      localeObject = "es";
+      break;
+    default:
+      localeObject = "en"; 
+  }
+
+  const dateFormatter = new Intl.DateTimeFormat(localeObject, {
+    day: "numeric",
+    month: "long", 
+    year: "numeric",
+  });
+
+  const formattedDate = dateFormatter.format(dateObj); 
+  return formattedDate;
+  
+};
+
+
 const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
@@ -27,7 +52,7 @@ const Task = forwardRef<
           <div>
             <h2 className="text-base font-bold my-1">{t(task.title)}</h2>
             <p className="text-sm text-slate-500">
-              {new Date(task.dueDate).toDateString()}
+            {formatDateForPicker(task.dueDate)}
             </p>
             <p className="text-sm text-slate-500">
               {t('Description:')} {t(task.description)}
@@ -59,7 +84,7 @@ const Task = forwardRef<
         <div>
           <h2 className="text-base font-bold my-1">{t(task.title)}</h2>
           <p className="text-sm text-slate-500">
-            {new Date(task.dueDate).toDateString()}
+          {formatDateForPicker(task.dueDate)}
           </p>
           <p className="text-sm text-slate-500">
             {t("Description:")} {t(task.description)}
