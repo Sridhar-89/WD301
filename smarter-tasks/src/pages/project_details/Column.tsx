@@ -18,7 +18,7 @@ const Container = (props: React.PropsWithChildren) => {
 // A component to render the title, which will be included as <Title>This is a sample title</Title>
 const Title = (props: React.PropsWithChildren) => {
   const { t}=useTranslation();
-  return <h3 className="p-2 font-semibold">{t(props.children)}</h3>;
+  return <h3 className="p-2 font-semibold">{(props.children)}</h3>;
 };
 
 const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(

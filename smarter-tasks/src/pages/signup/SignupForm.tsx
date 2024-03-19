@@ -172,10 +172,10 @@ const SignupForm: React.FC = () => {
       console.error("Sign-up failed:", error);
     }
   };
-  // const handleSignin = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   navigate("/signin");
-  // };
+  const handleSignin = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    navigate("/signin");
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -227,7 +227,7 @@ const SignupForm: React.FC = () => {
       >
         Sign up
       </button>
-      {/* <button className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4" onClick={handleSignin}>Already have an account? SignIn</button> */}
+      <button className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4" onClick={handleSignin}>Already have an account? SignIn</button>
     </form>
   );
 };

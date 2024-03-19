@@ -6,6 +6,7 @@ import Logo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../../context/theme";
 import { SetStateAction, useState, useContext, Fragment } from "react";
+import { error } from "console";
 
 const userNavigation = [
   { name: "Profile", href: "#" },
@@ -22,6 +23,7 @@ const Appbar = () => {
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
+    throw new Error("an error ocuured");
   };
   const { theme, setTheme } = useContext(ThemeContext);
   const [enabled, setEnabled] = useState(theme === "dark");

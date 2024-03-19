@@ -92,7 +92,9 @@ const DragDropList: React.FC<{ data: ProjectData }> = (props) => {
       },
     };
     reorderTasks(taskDispatch, newState);
-    const updatedTask = props.data.tasks[updatedItems[0]];
+    // const updatedTask = props.data.tasks[updatedItems[0]];
+    const updatedTask = props.data.tasks[updatedItems[1]]
+
     updatedTask.state = finishKey;
     updateTask(taskDispatch, projectID ?? "", updatedTask);
   };
